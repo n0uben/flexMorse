@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Code ###
+/src/main/java/fr/iut/flexMorse/TestRunner.java

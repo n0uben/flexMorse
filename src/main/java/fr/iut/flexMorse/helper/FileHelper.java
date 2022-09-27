@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FileHelper {
     public static List<String> getFileRowsToStringList(Files file) {
-        List<String> fileRows= new ArrayList<>();
+        List<String> fileRows = new ArrayList<>();
 
 
         return fileRows;
