@@ -3,6 +3,8 @@ package fr.iut.flexMorse.helper;
 import fr.iut.flexMorse.liste.NoeudListe;
 
 import java.io.*;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,8 @@ public class FileHelper {
         return fileRows;
     }
 
-    public static String createRelativePath(String relativePath) {
-        
+    public static String createAbsolutPathToRessources(String fileName) {
+        String separator = FileSystems.getDefault().getSeparator();
+        return new File("").getAbsolutePath() + separator + "src" + separator + "main" + separator + "resources" + separator + "static" + separator + fileName;
     }
 }
