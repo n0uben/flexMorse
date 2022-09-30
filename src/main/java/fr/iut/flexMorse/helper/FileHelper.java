@@ -3,20 +3,22 @@ package fr.iut.flexMorse.helper;
 import fr.iut.flexMorse.liste.NoeudListe;
 
 import java.io.*;
-import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
-import java.util.ArrayList;
 import java.util.List;
 
 public class FileHelper {
-    public static NoeudListe getFileRowsToStringList(String path) {
+    public static NoeudListe getFileRowsToStringNoeudListe(String path) {
         NoeudListe fileRows = new NoeudListe();
         File fileToRead = new File(path);
         String row;
         try {
             BufferedReader bf = new BufferedReader(new FileReader(fileToRead));
             while ((row = bf.readLine()) != null) {
-                System.out.println(row);
+                String[] splittedRow = row.split("=");
+                String lettre = splittedRow[0];
+                String morse = splittedRow[1];
+
+                fileRows.add(lettre, morse);
             }
 
             bf.close();
