@@ -10,12 +10,12 @@ public class TraductionController {
 //    Endpoints pour de faux pour les tests front
     @PostMapping("/morse/alphabet")
     public TraductionTexte traductionMorseAlphabet(final @RequestBody TraductionTexte texteATraduire) {
-        TraductionTexte traductionTexte = new TraductionTexte(texteATraduire.getTexteATraduire(), "olalala cest le morse vers l'alphabet magnifique traduction");
+        TraductionTexte traductionTexte = new TraductionTexte("OSKOUR");
         return traductionTexte;
     }
     @PostMapping("/alphabet/morse")
     public TraductionTexte traductionAlphabetMorse(final @RequestBody TraductionTexte texteATraduire) {
-        TraductionTexte traductionTexte = new TraductionTexte(texteATraduire.getTexteATraduire(), ".--.- -.-. -. .-. -.-. -.---..");
+        TraductionTexte traductionTexte = new TraductionTexte("... --- ...");
         return traductionTexte;
     }
 }
