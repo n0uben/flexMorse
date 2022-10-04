@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.*;
 public class TraductionController {
 
 //    Endpoints pour de faux pour les tests front
-    @GetMapping("/morse/alphabet")
-    public TraductionTexte traductionMorseAlphabet() {
-        TraductionTexte texteTraduit = new TraductionTexte("olalala cest le morse vers l'alphabet magnifique traduction");
-        return texteTraduit;
+    @PostMapping("/morse/alphabet")
+    public TraductionTexte traductionMorseAlphabet(final @RequestBody TraductionTexte texteATraduire) {
+        TraductionTexte traductionTexte = new TraductionTexte(texteATraduire.getTexteATraduire(), "olalala cest le morse vers l'alphabet magnifique traduction");
+        return traductionTexte;
     }
-    @GetMapping("/alphabet/morse")
-    public TraductionTexte traductionAlphabetMorse() {
-        TraductionTexte texteTraduit = new TraductionTexte("olalala cest l'alphabet vers le morse magnifique traduction");
-        return texteTraduit;
+    @PostMapping("/alphabet/morse")
+    public TraductionTexte traductionAlphabetMorse(final @RequestBody TraductionTexte texteATraduire) {
+        TraductionTexte traductionTexte = new TraductionTexte(texteATraduire.getTexteATraduire(), ".--.- -.-. -. .-. -.-. -.---..");
+        return traductionTexte;
     }
 }
