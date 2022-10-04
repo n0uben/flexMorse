@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/traduction")
+@CrossOrigin
 public class TraductionController {
 
 //    Endpoints pour de faux pour les tests front
