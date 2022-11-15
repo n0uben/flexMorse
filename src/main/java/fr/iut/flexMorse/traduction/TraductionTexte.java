@@ -4,6 +4,7 @@ public class TraductionTexte {
 
     private String texte;
 
+    public TraductionTexte(){}
     public TraductionTexte(String texte) {
         this.texte = texte;
     }
