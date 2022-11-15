@@ -19,10 +19,14 @@ public class TraductionService {
 
     public String morseVersAlphabet(String texteATraduire) {
         StringBuilder messageTraduit = new StringBuilder();
-        String[] texteATraduireList = texteATraduire.trim().split(" ");
 
+        String[] texteATraduireList = texteATraduire.split("/");
         for (String code : texteATraduireList) {
-            messageTraduit.append(arbreConversionMorseLetrre.getLettreByCode(code));
+            String[] motATraduireList = code.trim().split(" ");
+            for (String lettre : motATraduireList) {
+                messageTraduit.append(arbreConversionMorseLetrre.getLettreByCode(lettre));
+            }
+            messageTraduit.append(" ");
         }
 
         return messageTraduit.toString();
@@ -31,14 +35,16 @@ public class TraductionService {
     public String alphabetVersMorse(String texteATraduire) {
         StringBuilder messageTraduit = new StringBuilder();
         String[] texteATraduireList = texteATraduire.trim().split(" ");
-
+        int nombreDeMots = texteATraduireList.length;
+        int compteur = 0;
         for (String mot : texteATraduireList) {
+            compteur += 1;
             String[] motATraduireList = mot.trim().split("");
             for (String lettre : motATraduireList) {
                 messageTraduit.append(listConversionLettreMorse.getCodeByLettre(lettre.toUpperCase())).append(" ");
             }
-            messageTraduit.append("/");
-
+            if (compteur < nombreDeMots)
+                messageTraduit.append("/ ");
         }
 
         return messageTraduit.toString();

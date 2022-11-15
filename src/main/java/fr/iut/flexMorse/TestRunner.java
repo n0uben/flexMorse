@@ -17,6 +17,6 @@ public class TestRunner {
         System.out.println(listConversionLettreMorse.getCodeByLettre("S"));
         TraductionService trad = new TraductionService();
         System.out.println(trad.alphabetVersMorse("blabla et tata"));
-        System.out.println(trad.morseVersAlphabet("... .-."));
+        System.out.println(trad.morseVersAlphabet("-... .-.. .- -... .-.. .- /. -/- .- - .-"));
     }
 }
