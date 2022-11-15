@@ -8,7 +8,9 @@ import fr.iut.flexMorse.traduction.TraductionService;
 public class TestRunner {
     public static void main(String[] args) {
         TraductionService trad = new TraductionService();
-        System.out.println(trad.alphabetVersMorse("blabla et tata"));
-        System.out.println(trad.morseVersAlphabet("-... .-.. .- -... .-.. .- /. -/- .- - .-"));
+//        System.out.println(trad.alphabetVersMorse("blabla et tata"));
+//        System.out.println(trad.morseVersAlphabet("-... .-.. .- -... .-.. .- /. -/- .- - .-"));
+        System.out.println("Test : ");
+        System.out.println(trad.alphabetVersMorse("SOS!"));
     }
 }

@@ -41,12 +41,14 @@ public class TraductionService {
             compteur += 1;
             String[] motATraduireList = mot.trim().split("");
             for (String lettre : motATraduireList) {
+                if (listConversionLettreMorse.getCodeByLettre(lettre) == null)
+                    return  texteATraduire;
                 messageTraduit.append(listConversionLettreMorse.getCodeByLettre(lettre.toUpperCase())).append(" ");
             }
             if (compteur < nombreDeMots)
                 messageTraduit.append("/ ");
         }
-
+        System.out.println(messageTraduit);
         return messageTraduit.toString();
     }
 }

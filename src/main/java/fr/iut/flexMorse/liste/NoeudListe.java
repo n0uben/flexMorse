@@ -75,11 +75,17 @@ public class NoeudListe {
         while (noeud != null && !noeud.itemLettreMorse.getLettre().equals(lettre)) {
             noeud = noeud.getNext();
         }
+        if (noeud == null)
+            throw new IllegalArgumentException("Le caractere n'est pas valide");
         return noeud;
     }
 
     public String getCodeByLettre(String lettre) {
-        return getNoeudBy(lettre).getItemMorse();
+        try {
+            return getNoeudBy(lettre).getItemMorse();
+        } catch (IllegalArgumentException iae) {
+            return null;
+        }
     }
 
     public NoeudListe getNoeudBy(int index) {
