@@ -8,11 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TraductionService {
+    private final String path = FileHelper.createAbsolutPathToRessources("morse.txt");
+    NoeudArbre arbreConversionMorseLetrre;
+    NoeudListe listConversionLettreMorse;
+
+    public TraductionService() {
+        this.arbreConversionMorseLetrre = FileHelper.getFileRowsToStringNoeudArbre(path);
+        this.listConversionLettreMorse = FileHelper.getFileRowsToStringNoeudListe(path);
+    }
 
     public String morseVersAlphabet(String texteATraduire) {
-        String path = FileHelper.createAbsolutPathToRessources("morse.txt");
-        NoeudArbre arbreConversionMorseLetrre = FileHelper.getFileRowsToStringNoeudArbre(path);
-
         StringBuilder messageTraduit = new StringBuilder();
         String[] texteATraduireList = texteATraduire.trim().split(" ");
 
@@ -24,9 +29,6 @@ public class TraductionService {
     }
 
     public String alphabetVersMorse(String texteATraduire) {
-        String path = FileHelper.createAbsolutPathToRessources("morse.txt");
-        NoeudListe listConversionLettreMorse = FileHelper.getFileRowsToStringNoeudListe(path);
-
         StringBuilder messageTraduit = new StringBuilder();
         String[] texteATraduireList = texteATraduire.trim().split(" ");
 
