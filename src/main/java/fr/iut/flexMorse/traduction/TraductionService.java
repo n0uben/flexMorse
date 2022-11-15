@@ -31,9 +31,9 @@ public class TraductionService {
         String[] texteATraduireList = texteATraduire.trim().split(" ");
 
         for (String lettre : texteATraduireList) {
-            messageTraduit.append(listConversionLettreMorse.getCodeByLettre(lettre));
+            messageTraduit.append(listConversionLettreMorse.getCodeByLettre(lettre)).append(" ");
         }
-        
+
         return messageTraduit.toString();
     }
 }
