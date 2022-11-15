@@ -20,7 +20,11 @@ public class ItemLettreMorse {
     }
 
     public String getMorse() {
-        return morse;
+        if (morse == null) {
+            return "";
+        } else {
+            return morse;
+        }
     }
 
     public void setLettre(String lettre) {
