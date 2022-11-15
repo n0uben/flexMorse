@@ -72,8 +72,11 @@ public class NoeudListe {
 
     public NoeudListe getNoeudBy(String lettre) {
         NoeudListe noeud = getFirstNoeud();
+        System.out.println("La lettre choisi est : " + lettre);
+        System.out.println("first noeud = " + noeud.getItemLettre());
         while (noeud != null && !noeud.itemLettreMorse.getLettre().equals(lettre)) {
             noeud = noeud.getNext();
+            System.out.println("Noeud de la boucle : " + noeud.getItemLettre());
         }
         return noeud;
     }
