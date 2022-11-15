@@ -7,15 +7,21 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class TraductionController {
 
+    private TraductionService traductionService;
+
+    public TraductionController() {
+        this.traductionService = new TraductionService();
+    }
+
 //    Endpoints pour de faux pour les tests front
     @PostMapping("/morse/alphabet")
-    public TraductionTexte traductionMorseAlphabet(final @RequestBody TraductionTexte texteATraduire) {
-        TraductionTexte traductionTexte = new TraductionTexte("OSKOUR");
-        return traductionTexte;
+    public String traductionMorseAlphabet(final @RequestBody String texteATraduire) {
+        String texteTraduit = this.traductionService.morseVersAlphabet(texteATraduire);
+        return texteTraduit;
     }
     @PostMapping("/alphabet/morse")
-    public TraductionTexte traductionAlphabetMorse(final @RequestBody TraductionTexte texteATraduire) {
-        TraductionTexte traductionTexte = new TraductionTexte("... --- ...");
-        return traductionTexte;
+    public String traductionAlphabetMorse(final @RequestBody String texteATraduire) {
+        String texteTraduit = this.traductionService.alphabetVersMorse(texteATraduire);
+        return texteTraduit;
     }
 }
