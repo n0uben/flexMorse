@@ -15,13 +15,13 @@ public class TraductionController {
 
 //    Endpoints pour de faux pour les tests front
     @PostMapping("/morse/alphabet")
-    public String traductionMorseAlphabet(final @RequestBody String texteATraduire) {
+    public TraductionTexte traductionMorseAlphabet(final @RequestBody String texteATraduire) {
         String texteTraduit = this.traductionService.morseVersAlphabet(texteATraduire);
-        return texteTraduit;
+        return new TraductionTexte(texteTraduit);
     }
     @PostMapping("/alphabet/morse")
-    public String traductionAlphabetMorse(final @RequestBody String texteATraduire) {
+    public TraductionTexte traductionAlphabetMorse(final @RequestBody String texteATraduire) {
         String texteTraduit = this.traductionService.alphabetVersMorse(texteATraduire);
-        return texteTraduit;
+        return new TraductionTexte(texteTraduit);
     }
 }
