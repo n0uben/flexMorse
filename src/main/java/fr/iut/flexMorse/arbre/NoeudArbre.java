@@ -64,6 +64,16 @@ public class NoeudArbre {
         noeud.setLettre(lettre);
     }
 
+    public String getLettreByCode(String codeMorse) {
+        NoeudArbre noeud = this.getFirstNoeud();
+
+        for (int i = 0; i < codeMorse.length(); i++) {
+            String character = String.valueOf(codeMorse.charAt(i));
+            noeud = switchBranchAndGetNoeud(noeud, character);
+        }
+        return noeud.getLettre();
+    }
+
     private NoeudArbre switchAndGenerate(NoeudArbre noeud, String characterToSwitch) {
         switch (characterToSwitch) {
             case "." -> {
@@ -86,7 +96,20 @@ public class NoeudArbre {
         }
     }
 
-    
+    private NoeudArbre switchBranchAndGetNoeud(NoeudArbre noeud, String characterToSwitch) {
+        switch (characterToSwitch) {
+            case "." -> {
+                return noeud.getGauchePoint();
+            }
+            case "-" -> {
+                return noeud.getDroiteTiret();
+            }
+            default ->
+                    throw new IllegalArgumentException("Erreur, le code morse contient : " + characterToSwitch + " ce qui n'est pas un caractere valide");
+        }
+    }
+
+
 
     @Override
     public String toString() {

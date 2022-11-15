@@ -10,6 +10,9 @@ public class TestRunner {
         NoeudListe listConversionLettreMorse = FileHelper.getFileRowsToStringNoeudListe(path);
         NoeudArbre arbreConversionMorseLetrre = FileHelper.getFileRowsToStringNoeudArbre(path);
 
-        System.out.println(arbreConversionMorseLetrre);
+        String test = "...";
+
+        System.out.println(arbreConversionMorseLetrre.getLettreByCode(test));
+        System.out.println(listConversionLettreMorse.getCodeByLettre("S"));
     }
 }

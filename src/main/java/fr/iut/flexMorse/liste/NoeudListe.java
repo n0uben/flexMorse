@@ -1,45 +1,33 @@
 package fr.iut.flexMorse.liste;
 
+import fr.iut.flexMorse.model.ItemLettreMorse;
+
 public class NoeudListe {
 
     private NoeudListe previous;
-    private String lettre;
-    private String morse;
+    private ItemLettreMorse itemLettreMorse;
     private NoeudListe next;
 
     public NoeudListe() {
+        this.itemLettreMorse = new ItemLettreMorse();
     }
 
     public NoeudListe(String lettre, String morse) {
-        this.lettre = lettre;
-        this.morse = morse;
+        this.itemLettreMorse = new ItemLettreMorse(lettre, morse);
     }
 
     public NoeudListe(NoeudListe previous, String lettre, String morse, NoeudListe next) {
         this.previous = previous;
-        this.lettre = lettre;
-        this.morse = morse;
+        this.itemLettreMorse = new ItemLettreMorse(lettre, morse);
         this.next = next;
     }
 
-    public String getLettre() {
-        if (lettre == null) {
-            return "";
-        } else {
-            return lettre;
-        }
+    public String getItemLettre() {
+        return itemLettreMorse.getLettre();
     }
 
-    public void setLettre(String lettre) {
-        this.lettre = lettre;
-    }
-
-    public String getMorse() {
-        return morse;
-    }
-
-    public void setMorse(String morse) {
-        this.morse = morse;
+    public String getItemMorse() {
+        return itemLettreMorse.getMorse();
     }
 
     public NoeudListe getNext() {
@@ -67,9 +55,9 @@ public class NoeudListe {
     }
 
     public void add(String lettre, String morse) {
-        if (this.getLettre().equals("")) {
-            setLettre(lettre);
-            setMorse(morse);
+        if (this.itemLettreMorse.getLettre().equals("")) {
+            this.itemLettreMorse.setLettre(lettre);
+            this.itemLettreMorse.setMorse(morse);
         }
         else {
             NoeudListe lastNoeud = getLastNoeud();
@@ -84,10 +72,14 @@ public class NoeudListe {
 
     public NoeudListe getNoeudBy(String lettre) {
         NoeudListe noeud = getFirstNoeud();
-        while (noeud != null && !noeud.getLettre().equals(lettre)) {
+        while (noeud != null && !noeud.itemLettreMorse.getLettre().equals(lettre)) {
             noeud = noeud.getNext();
         }
         return noeud;
+    }
+
+    public String getCodeByLettre(String lettre) {
+        return getNoeudBy(lettre).getItemMorse();
     }
 
     public NoeudListe getNoeudBy(int index) {
@@ -105,7 +97,7 @@ public class NoeudListe {
         NoeudListe noeud = getFirstNoeud();
         int count = 0;
 
-        while (noeud != null && !noeud.getLettre().equals(lettre)) {
+        while (noeud != null && !noeud.itemLettreMorse.getLettre().equals(lettre)) {
             noeud = noeud.getNext();
             count += 1;
         }
@@ -139,8 +131,8 @@ public class NoeudListe {
     @Override
     public String toString() {
         return "NoeudListe{" +
-                "lettre='" + lettre + '\'' +
-                ", morse='" + morse + '\'' +
+                "lettre='" + itemLettreMorse.getLettre() + '\'' +
+                ", morse='" + itemLettreMorse.getMorse() + '\'' +
                 ", suivant=" + next +
                 '}';
     }
