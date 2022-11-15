@@ -84,7 +84,7 @@ public class NoeudListe {
         try {
             return getNoeudBy(lettre).getItemMorse();
         } catch (IllegalArgumentException iae) {
-            return null;
+            throw new IllegalArgumentException(iae.getMessage());
         }
     }
 

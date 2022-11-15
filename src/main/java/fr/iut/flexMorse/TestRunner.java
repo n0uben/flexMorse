@@ -10,7 +10,19 @@ public class TestRunner {
         TraductionService trad = new TraductionService();
 //        System.out.println(trad.alphabetVersMorse("blabla et tata"));
 //        System.out.println(trad.morseVersAlphabet("-... .-.. .- -... .-.. .- /. -/- .- - .-"));
-        System.out.println("Test : ");
+        System.out.println("Test Alphabet vers Morse");
+        System.out.println("Test : SOS!");
         System.out.println(trad.alphabetVersMorse("SOS!"));
+        System.out.println("Test : SOS et sos");
+        System.out.println(trad.alphabetVersMorse("SOS"));
+        System.out.println(trad.alphabetVersMorse("sos"));
+        System.out.println("Test Morse vers Alphabet");
+        System.out.println("Test : ... ---...");
+        System.out.println(trad.morseVersAlphabet("... ---..."));
+        System.out.println("Test : ... --- ... /");
+        System.out.println(trad.morseVersAlphabet("... --- ... /"));
+        System.out.println("Test evec des moins : ... --- ...");
+        System.out.println(trad.morseVersAlphabet("... --- ..."));
+
     }
 }

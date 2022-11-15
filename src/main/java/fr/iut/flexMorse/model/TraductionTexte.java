@@ -1,4 +1,4 @@
-package fr.iut.flexMorse.traduction;
+package fr.iut.flexMorse.model;
 
 public class TraductionTexte {
 
