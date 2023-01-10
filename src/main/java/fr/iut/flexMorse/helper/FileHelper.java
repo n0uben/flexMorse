@@ -10,10 +10,12 @@ import java.util.List;
 public class FileHelper {
     public static NoeudListe getFileRowsToStringNoeudListe(String path) {
         NoeudListe fileRows = new NoeudListe();
-        File fileToRead = new File(path);
+//        File fileToRead = new File(path);
+        InputStream resourceStream = FileHelper.class.getResourceAsStream("/static/morse.txt");
+
         String row;
         try {
-            BufferedReader bf = new BufferedReader(new FileReader(fileToRead));
+            BufferedReader bf = new BufferedReader(new InputStreamReader(resourceStream));
             while ((row = bf.readLine()) != null) {
                 String[] splittedRow = row.split("=");
                 String lettre = splittedRow[0];
@@ -33,10 +35,11 @@ public class FileHelper {
 
     public static NoeudArbre getFileRowsToStringNoeudArbre(String path) {
         NoeudArbre fileRows = new NoeudArbre();
-        File fileToRead = new File(path);
+//        File fileToRead = new File(path);
+        InputStream resourceStream = FileHelper.class.getResourceAsStream("/static/morse.txt");
         String row;
         try {
-            BufferedReader bf = new BufferedReader(new FileReader(fileToRead));
+            BufferedReader bf = new BufferedReader(new InputStreamReader(resourceStream));
             while ((row = bf.readLine()) != null) {
                 String[] splittedRow = row.split("=");
                 String lettre = splittedRow[0];
